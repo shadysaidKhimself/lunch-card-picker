@@ -38,7 +38,7 @@ const lunchOptions = [
   { name: '比薩（夏威夷 / 瑪格麗特）', emoji: '🍕' },
 
   // 特殊選項
-  { name: '土', emoji: '🪨' },
+  { name: '土', emoji: '🕳️' },
   { name: '大便', emoji: '💩' },
 ]
 
