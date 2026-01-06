@@ -1,6 +1,12 @@
 # 午餐抽卡機 🎴
 
+[![部署狀態](https://github.com/shadysaidKhimself/lunch-card-picker/actions/workflows/deploy.yml/badge.svg)](https://github.com/shadysaidKhimself/lunch-card-picker/actions/workflows/deploy.yml)
+
 一個精美的日系極簡風格單頁 Web 應用，幫你決定今天午餐吃什麼！
+
+## 🌐 線上 Demo
+
+**立即體驗：** https://shadysaidkhimself.github.io/lunch-card-picker/
 
 ## 功能特色
 
