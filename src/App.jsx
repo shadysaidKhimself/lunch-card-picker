@@ -50,7 +50,7 @@ function App() {
 
   const handleCardClick = () => {
     if (!isFlipped && !hasFlipped) {
-      // 隨機選擇一個午餐選項
+      // 首次點擊：隨機選擇一個午餐選項並翻牌
       const randomIndex = Math.floor(Math.random() * lunchOptions.length)
       const selected = lunchOptions[randomIndex]
       const now = new Date()
@@ -68,6 +68,9 @@ function App() {
         origin: { y: 0.6 },
         colors: ['#FFD700', '#FF6B6B', '#4ECDC4', '#95E1D3', '#F38181'],
       })
+    } else if (isFlipped && hasFlipped) {
+      // 點擊已翻開的卡片：重置（與"再抽一次"按鈕相同功能）
+      handleReset()
     }
   }
 
