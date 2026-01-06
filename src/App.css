@@ -1,0 +1,171 @@
+/* 3D 翻轉效果 */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.card-container {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 auto;
+}
+
+.card-container.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-back,
+.card-front {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-front {
+  transform: rotateY(180deg);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* 緩慢彈跳動畫 */
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(10px) scale(1.6);
+  }
+  50% {
+    transform: translateY(0) scale(1.6);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* 食物 Emoji 放大 2 倍 */
+.emoji-large {
+  font-size: 96px;
+  line-height: 1;
+  display: inline-block;
+  transform: scale(1.6);
+  transform-origin: center;
+  margin-top: 50px;
+}
+
+/* 再抽一次按鈕區域：在 Tailwind mt-12 基礎上再下移 30px */
+.retry-button-wrapper {
+  margin-top: calc(3rem + 30px);
+}
+
+/* 卡牌外觀：柔和圓角與真實卡片陰影 */
+.card-surface {
+  border-radius: 28px;
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.22),
+    0 0 0 1px rgba(148, 163, 184, 0.35);
+}
+
+/* 卡牌背面花色圖案（撲克牌背面風格） */
+.card-back::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border-radius: 22px;
+  background-image:
+    radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.35) 0, rgba(255, 255, 255, 0.35) 18%, transparent 19%, transparent 100%),
+    radial-gradient(circle at 12px 12px, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.4) 18%, transparent 19%, transparent 100%);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  opacity: 0.75;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* 歷史紀錄：橫向滾動卡片＋漸層遮罩 */
+.history-strip-wrapper {
+  position: relative;
+  width: 250px; /* 與卡片同寬 */
+  margin: 24px auto 0;
+  padding: 6px 0;
+}
+
+.history-strip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 6px 8px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.history-strip::-webkit-scrollbar {
+  display: none; /* Chrome / Safari */
+}
+
+.history-card {
+  min-width: 130px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.16),
+    0 0 0 1px rgba(148, 163, 184, 0.4);
+}
+
+.history-emoji {
+  font-size: 20px;
+}
+
+.history-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.history-name {
+  font-size: 0.875rem;
+  color: #111827;
+}
+
+.history-time {
+  font-size: 0.7rem;
+  color: #9ca3af;
+}
+
+.history-strip-wrapper::before,
+.history-strip-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 22px;
+  pointer-events: none;
+}
+
+.history-strip-wrapper::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(248, 250, 252, 1),
+    rgba(248, 250, 252, 0)
+  );
+}
+
+.history-strip-wrapper::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(248, 250, 252, 1),
+    rgba(248, 250, 252, 0)
+  );
+}
